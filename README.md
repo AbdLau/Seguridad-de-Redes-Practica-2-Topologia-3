@@ -1,4 +1,4 @@
-# Infraestructura 3: VPN Remote-Site (SSL-VPN) con FortiGate
+# VPN Remote-Site (SSL-VPN) con FortiGate
 
 ## 🎥 Video demostrativo
 
