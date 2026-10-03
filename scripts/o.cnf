@@ -1,0 +1,10 @@
+openssl_conf=a
+[a]
+ssl_conf=b
+[b]
+system_default=c
+[c]
+MinProtocol=TLSv1.2
+MaxProtocol=TLSv1.2
+Groups=X25519:secp256r1
+CipherString=DEFAULT@SECLEVEL=0
