@@ -52,7 +52,7 @@ flowchart TB
     C -.->|"SSL-VPN 10443"| FG
 ```
 
-![Topología en GNS3](<img width="418" height="420" alt="01-topologia-gns3" src="https://github.com/user-attachments/assets/9a974ab5-645b-4af9-a747-c576875f2151" />)
+![Topología en GNS3](img/01-topologia-gns3.png)
 
 ---
 
@@ -73,19 +73,19 @@ flowchart TB
 ## Configuración de red
 
 ### Interfaces del FortiGate
-![Interfaces](<img width="1107" height="549" alt="02-interfaces-fortigate" src="https://github.com/user-attachments/assets/6e28ac47-596c-4021-995a-91488793e779" />)
+![Interfaces](img/02-interfaces-fortigate.png)
 
 ### Rutas estáticas
 Ruta por defecto hacia el ISP (200.8.46.2) y ruta a la red de usuarios (10.8.46.0/25) vía R2 (200.8.46.134).
 
-![Rutas estáticas](<img width="1098" height="174" alt="03-rutas-estaticas" src="https://github.com/user-attachments/assets/55ca8625-c539-49c3-a272-6299991ca30a" />)
+![Rutas estáticas](img/03-rutas-estaticas.png)
 
 ### Cisco-R2
-![R2 interfaces y rutas](<img width="665" height="419" alt="04-r2-interfaces-rutas" src="https://github.com/user-attachments/assets/47cd9310-d833-47c8-a8d1-59cb3958b165" />)
+![R2 interfaces y rutas](img/04-r2-interfaces-rutas.png)
 
 Subinterfaz de la VLAN 10:
 
-![R2 subinterfaz VLAN 10](<img width="660" height="168" alt="05-r2-subinterfaz-vlan10" src="https://github.com/user-attachments/assets/8855c5c4-8fad-49e1-93d2-1ba6b3177dd2" />)
+![R2 subinterfaz VLAN 10](img/05-r2-subinterfaz-vlan10.png)
 
 ---
 
@@ -93,7 +93,7 @@ Subinterfaz de la VLAN 10:
 
 El servidor ejecuta Apache (DVWA) y OpenSSH.
 
-![Servicios del servidor](<img width="1108" height="285" alt="08-servidor-servicios" src="https://github.com/user-attachments/assets/160376b9-8c3d-4d87-b484-5668cf6c7918" />)
+![Servicios del servidor](img/08-servidor-servicios.png)
 
 ---
 
@@ -101,11 +101,11 @@ El servidor ejecuta Apache (DVWA) y OpenSSH.
 
 Los usuarios están en la VLAN 10 y obtienen IP por DHCP.
 
-![Usuario con DHCP](<img width="689" height="366" alt="06-usuarios-dhcp" src="https://github.com/user-attachments/assets/23b172d3-d125-44ea-a24c-7aef6c0f8e31" />)
+![Usuario con DHCP](img/06-usuarios-dhcp.png)
 
 Traceroute hacia el servidor (R2 → FortiGate → servidor):
 
-![Traceroute](<img width="570" height="94" alt="07-traceroute-servidor" src="https://github.com/user-attachments/assets/7cd6c117-798f-437e-b070-d5028ee39a30" />)
+![Traceroute](img/07-traceroute-servidor.png)
 
 ---
 
@@ -113,15 +113,15 @@ Traceroute hacia el servidor (R2 → FortiGate → servidor):
 
 El web se publica con un Virtual IP (DNAT) y una política de firewall en el FortiGate, por lo que el acceso no requiere VPN.
 
-![Virtual IPs](<img width="1210" height="168" alt="09-virtual-ip" src="https://github.com/user-attachments/assets/98f47cdf-3809-4919-924b-0dd9b6841a6c" />)
+![Virtual IPs](img/09-virtual-ip.png)
 
-![Políticas de firewall](<img width="1365" height="436" alt="10-politicas-firewall" src="https://github.com/user-attachments/assets/85b3bd58-3865-44dd-b235-d60f95e83704" />)
+![Políticas de firewall](img/10-politicas-firewall.png)
 
-![Acceso web sin VPN](<img width="604" height="345" alt="12-web-sin-vpn" src="https://github.com/user-attachments/assets/d51d977b-9cda-4ea0-b39c-1c91e18578de" />)
+![Acceso web sin VPN](img/12-web-sin-vpn.png)
 
 El SSH sin VPN no está permitido:
 
-![SSH sin VPN falla](<img width="740" height="199" alt="13-ssh-sin-vpn-falla" src="https://github.com/user-attachments/assets/604a9ae9-9884-4fbc-b4f6-5d52526dc968" />)
+![SSH sin VPN falla](img/13-ssh-sin-vpn-falla.png)
 
 ---
 
@@ -133,9 +133,9 @@ El SSH sin VPN no está permitido:
 - Usuario: **usuario1**
 - Pool de direcciones: **VPN_POOL**
 
-![SSL-VPN Settings](<img width="757" height="595" alt="14-ssl-vpn-settings" src="https://github.com/user-attachments/assets/41205eb3-edc4-4eff-ae47-c4f9c41c8d11" />)
+![SSL-VPN Settings](img/14-ssl-vpn-settings.png)
 
-![SSL-VPN Portal](<img width="677" height="631" alt="15-ssl-vpn-portal" src="https://github.com/user-attachments/assets/83339e75-b33c-498f-8134-9462c489785e" />)
+![SSL-VPN Portal](img/15-ssl-vpn-portal.png)
 
 ![Usuario VPN](img/16-usuario-vpn.png)
 
@@ -157,7 +157,8 @@ OPENSSL_CONF=/tmp/o.cnf openconnect -b --protocol=fortinet \
 ssh root@10.8.46.130
 ```
 
-![openconnect conectado](img/17-openconnect-conectado.png)
+![openconnect conectado](img/17-openconnect-conectado-1.png)
+![openconnect conectado](img/17-openconnect-conectado-2.png)
 
 ![SSH con VPN](img/18-ssh-con-vpn.png)
 
@@ -169,7 +170,8 @@ ssh root@10.8.46.130
 
 Usuario conectado en el monitor de SSL-VPN:
 
-![Monitor SSL-VPN](img/19-ssl-vpn-monitor.png)
+![Monitor SSL-VPN](img/19-ssl-vpn-monitor-1.png)
+![Monitor SSL-VPN](img/19-ssl-vpn-monitor-2.png)
 
 Tráfico aceptado (HTTP sin VPN y SSH por VPN):
 
